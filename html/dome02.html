@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../js/vue.js"></script>
+		<title>dome02</title>
+	</head>
+	<body>
+		<div id="app-3">
+		    <div v-for="x in info.skillList">
+		        现在你看到我了<br>
+				{{x.id}}<br>
+				{{x.name}} <br>
+				{{x.damage}} <br>
+		    </div>
+		    <div>
+		        这是另一个我
+		    </div>
+		</div>
+		
+		
+		
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+			
+		    var app3 = new Vue({
+		        el: '#app-3',
+				data(){
+					return {
+						info:[]
+					}
+				},
+		    })
+			
+			axios.get('../json/index.json').then(res=>{
+				app3.$data.info = res.data
+			})
+			
+		</script>
+	</body>
+</html>

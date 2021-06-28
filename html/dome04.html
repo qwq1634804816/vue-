@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../js/vue.js"></script>
+		<title>v-model</title>
+	</head>
+	<body>
+		<div id="app-3">
+			<h2>单选框</h2>
+			<input type="radio" name="test" value="0" v-model="checked"/>男
+			<input type="radio" name="test" value="1" v-model="checked"/>女
+			<label>{{checked}}</label>
+			<h2>复选框</h2>
+			<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+			<label for="jack">Jack</label>
+			<input type="checkbox" id="john" value="John" v-model="checkedNames">
+			<label for="john">John</label>
+			<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+			<label for="mike">Mike</label>
+			<br>
+			<span>Checked names: {{ checkedNames }}</span>
+			
+			<h2>选择框</h2>
+			<div id="example-5">
+			  <select v-model="selected">
+			    <option disabled value="">请选择</option>
+			    <option value="a">A</option>
+			    <option>B</option>
+			    <option>C</option>
+			  </select>
+			  <span>Selected: {{ selected }}</span>
+			</div>
+			
+			<h2>多选选择框</h2>
+			<div id="example-6">
+			  <select v-model="selecteds" multiple style="width: 50px;">
+			    <option>A</option>
+			    <option>B</option>
+			    <option>C</option>
+			  </select>
+			  <br>
+			  <span>Selected: {{ selecteds }}</span>
+			</div>
+			
+			<h2>文字</h2>
+			<br>
+			<input v-model="message" placeholder="edit me">
+			<p>Message is: {{ message }}</p>
+			
+			<br>
+		    
+		</div>
+			
+		
+		
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+			
+		    var app3 = new Vue({
+		        el: '#app-3',
+				data:{
+					Time:null,
+					time:null,
+					message:null,
+					checked:0,
+					checkedNames: ['Jack','John'],
+					selected: 'a',
+					selecteds: []
+				},
+		    })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../js/vue.js"></script>
+		<title>事件和计数器</title>
+	</head>
+	<body>
+		<div id="app-3">
+		    <button v-on:click="changeTime()">changeTime</button> {{Time}} <br>
+			<button v-on:click="changeTime1">changeTime1</button>{{time}} <br>
+		</div>
+			
+		
+		
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+			
+		    var app3 = new Vue({
+		        el: '#app-3',
+				data:{
+					Time:null,
+					time:null
+				},
+				methods:{
+					changeTime:function(){
+						this.$data.Time = new Date();
+						// console.log(this.$data.Time);
+					}
+				},
+				computed:{
+					changeTime1:function(){
+						return this.$data.time = new Date();
+						// console.log(this.$data.time);
+					}
+				}
+		    })
+		</script>
+	</body>
+</html>

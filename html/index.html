@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="../js/vue.js"></script> -->
+    <title>测试学习</title>
+</head>
+
+<body>
+    <!-- <div class="test" id="pop">
+        {{message}}
+    </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+    </div> -->
+    <div id="app-3">
+        <div v-if="seen">
+            现在你看到我了<br>
+            {{info.name}}
+        </div>
+        <div v-else>
+            这是另一个我
+        </div>
+    </div>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        // var vm = new Vue({
+        //     el: "#pop",
+        //     data: {
+        //         'message': 567
+        //     }
+        // })
+
+        // var app2 = new Vue({
+        //     el: '#app-2',
+        //     data: {
+        //         message: '页面加载于 ' + new Date().toLocaleString()
+        //     }
+        // })
+		
+        var app3 = new Vue({
+            el: '#app-3',
+			data(){
+				return {
+					info:[]
+				}
+			},
+        })
+		
+		axios.get('../json/index.json').then(res=>{
+			app3.$data.info = res
+		})
+		
+    </script>
+</body>
+
+</html>
